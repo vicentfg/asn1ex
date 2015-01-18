@@ -44,6 +44,7 @@ defmodule Mix.Tasks.Compile.Asn1 do
     options      = project[:asn1_options] || []
 
     build_dest
+
     targets = extract_targets(source_paths, dest_paths, opts[:force])
 
     # Erlang.compile(manifest(), mappings, :'set.asn1', :erl, opts[:force], fn

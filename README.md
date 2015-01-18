@@ -7,7 +7,7 @@ ASN.1 compiler mix task to generate erlang parser using asn1rt and asn1ct.
 
 Add the following line on the project function of mix.exs file:
 
-- `compilers: Mix.compilers ++ [:asn1]`
+- `compilers: [:asn1] ++ Mix.compilers`
 
 and asn1ex as a dependency:
 
