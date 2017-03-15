@@ -43,7 +43,7 @@ defmodule Mix.Tasks.Compile.Asn1 do
 #    mappings     = Enum.zip(source_paths, dest_paths)
     options      = project[:asn1_options] || []
 
-    build_dest
+    build_dest()
 
     targets = extract_targets(source_paths, dest_paths, opts[:force])
 
@@ -60,7 +60,7 @@ defmodule Mix.Tasks.Compile.Asn1 do
   @doc """
   Returns ASN.1 manifests.
   """
-  def manifests, do: [manifest]
+  def manifests, do: [manifest()]
   defp manifest, do: Path.join(Mix.Project.manifest_path, @manifest)
 
   @doc """
@@ -69,7 +69,7 @@ defmodule Mix.Tasks.Compile.Asn1 do
   def clean do
     modules = read_manifest(manifest())
     Enum.each(modules, fn mod -> Enum.each(module_files(Path.dirname(mod),Path.basename(mod)), &File.rm/1) end)
-    File.rm manifest
+    File.rm manifest()
     if File.ls(Path.dirname(List.first(modules)||[])) == {:ok, []} do
       File.rmdir(Path.dirname(List.first(modules)))
     end
