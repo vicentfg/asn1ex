@@ -51,7 +51,7 @@ defmodule Mix.Tasks.Compile.Asn1 do
     compile(manifest(), targets, fn
       input, output ->
         options = options ++ [:noobj, outdir: Erlang.to_erl_file(Path.dirname(output))]
-        { :asn1ct.compile(Erlang.to_erl_file(List.first(input)), options),
+        { :asn1ct.compile(Erlang.to_erl_file(input), options),
           # String.to_atom Path.basename(input, "set.asn1")}
           Path.basename(output)}
     end)
