@@ -37,11 +37,10 @@ defmodule Mix.Tasks.Compile.Asn1 do
   def run(args) do
     {opts, _, _} = OptionParser.parse(args, switches: [force: :boolean])
 
-    project      = Mix.Project.config
-    source_paths = project[:asn1_paths] || ["asn1"]
-    dest_paths    = project[:erlc_paths]
+    source_paths = Application.get_env(:asn1ex, :asn1_paths) || ["asn1"]
+    dest_paths    = Application.get_env(:asn1ex, :erlc_paths) || ["src"]
 #    mappings     = Enum.zip(source_paths, dest_paths)
-    options      = project[:asn1_options] || []
+    options      = Application.get_env(:asn1ex, :asn1_options) || []
 
     build_dest()
 
