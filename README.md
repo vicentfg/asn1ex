@@ -23,3 +23,8 @@ Other configuration options:
 - `:asn1_options` - compilation options that apply to ASN.1's compiler. There
   are many other available options here:
   http://erlang.org/doc/man/asn1ct.html#compile-2.
+
+Config Examples:
+- `config :asn1ex, :asn1_options, [:maps, :per]`
+- `config :asn1ex, :erlc_paths, ["src"]`
+- `config :asn1ex, :asn1_paths, ["asn1"]`

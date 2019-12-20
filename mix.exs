@@ -8,7 +8,9 @@ defmodule Asn1ex.Mixfile do
   end
 
   def application do
-    []
+    [
+      env: [asn1_paths: ["asn1"], erlc_paths: ["src"], asn1_options: []]
+    ]
   end
 
   defp deps do
